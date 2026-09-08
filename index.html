@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serigne Abdourahmane SAMB — Portfolio & CV</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-main: #FFFFFF;
+      --bg-alt: #F9FAFB;
+      --card-bg: #FFFFFF;
+      --card-border: #E5E7EB;
+      --primary: #050505;
+      --secondary: #4B5563;
+      --accent: #111827;
+      --text-main: #050505;
+      --text-muted: #4B5563;
+      --font-title: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .title-font {
+      font-family: var(--font-title);
+      letter-spacing: -0.02em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    header.nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 76px;
+    }
+    .logo {
+      font-size: 22px; font-weight: 700; color: var(--primary);
+      letter-spacing: -0.5px; text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; gap: 32px; list-style: none; margin: 0; padding: 0;
+      font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .nav-links a { color: var(--text-muted); transition: color 0.3s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    .hero {
+      padding: 120px 0 90px;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center;
+    }
+
+    h1.headline {
+      font-size: clamp(36px, 4.5vw, 56px); line-height: 1.15; margin: 0 0 24px;
+      font-weight: 800; color: var(--primary);
+    }
+    .subhead {
+      font-size: 18px; color: var(--text-muted); max-width: 540px; margin-bottom: 40px;
+      font-weight: 400;
+    }
+    .hero-img-box {
+      position: relative; border-radius: 24px; overflow: hidden;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    }
+    .hero-img-box img {
+      width: 100%; height: 460px; object-fit: cover; display: block;
+      filter: grayscale(100%) contrast(1.1);
+      transition: transform 0.8s ease;
+    }
+    .hero-img-box:hover img { transform: scale(1.05); }
+
+    .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 32px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1px;
+      transition: all 0.3s ease; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      background: var(--primary); color: #FFFFFF;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .btn-primary:hover {
+      background: #333333; transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+    .btn-outline {
+      background: transparent; color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    .btn-outline:hover {
+      background: var(--primary); color: #FFFFFF; transform: translateY(-3px);
+    }
+
+    section { padding: 100px 0; border-bottom: 1px solid var(--card-border); }
+    .section-header { text-align: center; max-width: 680px; margin: 0 auto 70px; }
+    .section-subtitle {
+      color: var(--secondary); text-transform: uppercase; font-size: 13px;
+      letter-spacing: 3px; font-weight: 600; margin-bottom: 12px;
+    }
+    .section-title { font-size: 40px; font-weight: 700; margin: 0; color: var(--primary); }
+
+    .projects-grid { display: flex; flex-direction: column; gap: 48px; }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px; overflow: hidden;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+    .project-card.reverse { direction: rtl; }
+    .project-card.reverse > * { direction: ltr; }
+    
+    .project-img-wrap {
+      position: relative; min-height: 360px; overflow: hidden;
+      border-right: 1px solid var(--card-border);
+      background: var(--bg-alt);
+    }
+    .project-card.reverse .project-img-wrap {
+      border-right: none; border-left: 1px solid var(--card-border);
+    }
+    .project-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;
+      filter: grayscale(100%) contrast(1.15);
+      transition: transform 0.8s ease;
+    }
+    .project-card:hover .project-img-wrap img { 
+      transform: scale(1.05);
+    }
+    
+    .project-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .project-tag-meta { font-size: 12px; color: var(--secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .project-title { font-size: 28px; margin: 0 0 20px; font-weight: 700; line-height: 1.2; color: var(--primary); }
+    .project-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 32px; line-height: 1.8; font-weight: 400; }
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+    .tech-badge {
+      background: var(--bg-alt); border: 1px solid var(--card-border);
+      padding: 6px 16px; border-radius: 100px; font-size: 12px; font-weight: 600;
+      color: var(--accent); letter-spacing: 0.5px;
+    }
+
+    /* ANIMATIONS EXTRÊMES POUR LE PARCOURS */
+    .timeline {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;
+      perspective: 1200px;
+    }
+    .timeline-card {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 16px; padding: 40px; box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      position: relative; overflow: visible;
+      transform-style: preserve-3d;
+      will-change: transform, opacity;
+    }
+    
+    .timeline-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--primary);
+      transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    /* Effet hover surpuissant */
+    .timeline-card:hover { 
+      transform: scale(1.08) translateY(-15px) rotateX(5deg) rotateY(-5deg) !important; 
+      box-shadow: -10px 30px 50px rgba(0,0,0,0.12);
+      border-color: #050505;
+      z-index: 10;
+    }
+    .timeline-card:hover::before {
+      width: 100%;
+      opacity: 0.03;
+    }
+
+    /* Classes dynamiques pour le JS */
+    .super-reveal {
+      opacity: 0;
+      transform: rotateX(40deg) translateY(80px) scale(0.8);
+      transition: opacity 1s cubic-bezier(0.2, 1, 0.3, 1), 
+                  transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition-delay: var(--delay, 0s);
+    }
+    .super-reveal.active {
+      opacity: 1;
+      transform: rotateX(0) translateY(0) scale(1);
+      /* Déclenche un flottement infini après l'apparition */
+      animation: float-extreme 6s ease-in-out infinite alternate var(--delay, 0s);
+    }
+
+    @keyframes float-extreme {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-12px); }
+    }
+
+    .timeline-date { font-size: 12px; color: var(--secondary); font-weight: 600; letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; transition: color 0.3s; }
+    .timeline-title { font-size: 20px; margin: 0 0 8px; font-weight: 700; color: var(--primary); }
+    .timeline-location { font-size: 14px; color: var(--primary); margin-bottom: 20px; font-weight: 600; }
+    .timeline-body { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 400; }
+
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;
+    }
+    .skill-box {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      transition: transform 0.3s;
+    }
+    .skill-box:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+    .skill-icon-wrap {
+      width: 64px; height: 64px; border-radius: 12px; margin-bottom: 24px;
+      overflow: hidden; border: 1px solid var(--card-border); background: var(--bg-alt);
+    }
+    .skill-icon-wrap img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); mix-blend-mode: multiply; }
+    .skill-box h3 { font-size: 18px; margin: 0 0 16px; font-weight: 700; color: var(--primary); }
+    .skill-list { list-style: none; padding: 0; margin: 0; color: var(--text-muted); font-size: 14px; font-weight: 400; }
+    .skill-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+    .skill-list li::before {
+      content: '—'; color: var(--primary); font-weight: bold;
+    }
+
+    .contact-box {
+      background: var(--bg-alt);
+      border: 1px solid var(--card-border); border-radius: 24px;
+      padding: 80px 40px; text-align: center; max-width: 800px; margin: 0 auto;
+    }
+
+    footer {
+      padding: 40px 0; text-align: center; color: var(--secondary); font-size: 13px;
+      font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase;
+      background: var(--bg-main);
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .project-card, .project-card.reverse { grid-template-columns: 1fr; }
+      .project-card.reverse { direction: ltr; }
+      .hero-img-box img { height: 320px; }
+      .contact-box { padding: 48px 24px; }
+      .nav-links { display: none; }
+      .project-img-wrap { min-height: 240px; border-right: none; border-bottom: 1px solid var(--card-border); }
+      .project-card.reverse .project-img-wrap { border-left: none; border-bottom: 1px solid var(--card-border); }
+      .super-reveal { transform: translateY(40px); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="logo">Abdourahmane</a>
+      <ul class="nav-links">
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <h1 class="headline">
+          Systèmes,<br>Réseaux et<br>Télécommunications.
+        </h1>
+        <p class="subhead">
+          Étudiant en L2 Systèmes & Réseaux de Télécommunications à l'ESP/UCAD. Je conçois des architectures d'entreprise, administre des infrastructures Cloud/Linux et sécurise les réseaux.
+        </p>
+        <div class="cta-row">
+          <a href="#projets" class="btn btn-primary">Voir les projets</a>
+          <a href="#contact" class="btn btn-outline">Me contacter</a>
+        </div>
+      </div>
+      
+      <div class="hero-img-box reveal">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2560&q=100" alt="Datacenter & Tech 4K">
+      </div>
+    </div>
+  </section>
+
+  <section id="projets">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <div class="section-subtitle">Ingénierie</div>
+        <h2 class="section-title">Réalisations Techniques</h2>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1920&q=100" alt="Infrastructure Réseau 4K">
+          </div>
+          <div class="project-content">
+            <span class="project-tag-meta">Réseaux &amp; Sécurité • ESP/UCAD</span>
+            <h3 class="project-title">Infrastructure Multi-Sites — Smartech SA</h3>
+            <p class="project-desc">
+              Simulation d'une architecture WAN interconnectant 3 sites distants. Implémentation du routage dynamique OSPF, EIGRP et RIPv2 avec redistribution bidirectionnelle et mécanismes anti-boucle (tags). Sécurisation renforcée par ACLs et déploiement d'un cœur MPLS VPN.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-badge">GNS3</span>
+              <span class="tech-badge">OSPF / EIGRP</span>
+              <span class="tech-badge">MPLS VPN</span>
+              <span class="tech-badge">ACL Security</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reverse reveal">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1920&q=100" alt="Infrastructure IAM 4K">
+          </div>
+          <div class="project-content">
+            <span class="project-tag-meta">Cybersécurité &amp; Système • VirtualBox</span>
+            <h3 class="project-title">Infrastructure IAM Centralisée</h3>
+            <p class="project-desc">
+              Déploiement d'un annuaire d'entreprise sous Linux avec OpenLDAP et Kerberos 5 pour la gestion unifiée des identités et du SSO. Intégration du serveur AAA FreeRADIUS pour le contrôle d'accès réseau sécurisé des équipements.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-badge">OpenLDAP</span>
+              <span class="tech-badge">Kerberos 5</span>
+              <span class="tech-badge">FreeRADIUS</span>
+              <span class="tech-badge">Linux Server</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1551721434-8b94ddff0e6d?auto=format&fit=crop&w=1920&q=100" alt="Téléphonie Cloud AWS 4K">
+          </div>
+          <div class="project-content">
+            <span class="project-tag-meta">Cloud &amp; VoIP • AWS Platform</span>
+            <h3 class="project-title">Serveur VoIP Hébergé sur AWS</h3>
+            <p class="project-desc">
+              Conception et installation d'un PBX d'entreprise hébergé sur une instance Cloud AWS. Configuration des plans de numérotation, trunks SIP, règles de routage vocal inter-sites et enregistrement sécurisé des clients WebRTC/Softphones.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-badge">AWS EC2</span>
+              <span class="tech-badge">Asterisk PBX</span>
+              <span class="tech-badge">SIP / VoIP</span>
+              <span class="tech-badge">Linux</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reverse reveal">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=100" alt="Code Development 4K">
+          </div>
+          <div class="project-content">
+            <span class="project-tag-meta">Développement Full-Stack • ESP/UCAD</span>
+            <h3 class="project-title">Plateforme Web Temps Réel</h3>
+            <p class="project-desc">
+              Application collaborative complète intégrant authentification sécurisée, chat d'équipe en direct via WebSockets, tableau blanc partagé et visioconférence P2P cryptée via WebRTC (PeerJS).
+            </p>
+            <div class="tech-stack">
+              <span class="tech-badge">Node.js / Express</span>
+              <span class="tech-badge">Socket.IO</span>
+              <span class="tech-badge">WebRTC</span>
+              <span class="tech-badge">MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <div class="section-subtitle">Curriculum</div>
+        <h2 class="section-title">Parcours Académique</h2>
+      </div>
+
+      <div class="timeline">
+        <!-- 1. Baccalauréat -->
+        <div class="timeline-card super-reveal" style="--delay: 0.1s">
+          <div class="timeline-date">2023 — 2024</div>
+          <h3 class="timeline-title">Baccalauréat Scientifique S2</h3>
+          <div class="timeline-location">Collège Don Bosco de Dakar — Mention Bien</div>
+          <div class="timeline-body">
+            Spécialité Sciences Expérimentales & Mathématiques. Acquisition de solides bases scientifiques, analytiques et logiques.
+          </div>
+        </div>
+
+        <!-- 2. Certification -->
+        <div class="timeline-card super-reveal" style="--delay: 0.3s">
+          <div class="timeline-date">Certification Officielle</div>
+          <h3 class="timeline-title">Industrial Cybersecurity Essentials</h3>
+          <div class="timeline-location">Cisco Networking Academy</div>
+          <div class="timeline-body">
+            Maîtrise de la sécurité des systèmes industriels (ICS) : normes IEC 62443 & NIST SP 800-82r3, segmentation réseau OT/IT, contrôle d'accès strict et durcissement des infrastructures critiques.
+          </div>
+        </div>
+
+        <!-- 3. Licence -->
+        <div class="timeline-card super-reveal" style="--delay: 0.5s">
+          <div class="timeline-date">2024 — Présent (2026)</div>
+          <h3 class="timeline-title">Licence Systèmes, Réseaux &amp; Télécoms</h3>
+          <div class="timeline-location">École Supérieure Polytechnique (ESP) — UCAD, Dakar</div>
+          <div class="timeline-body">
+            Formation approfondie en ingénierie des réseaux IP, administration système avancée (Linux/AD), sécurité réseau, télécoms optiques et sans-fil, traitement du signal et développement web.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <div class="section-subtitle">Expertise</div>
+        <h2 class="section-title">Compétences Techniques</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-box reveal">
+          <div class="skill-icon-wrap">
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=400&q=100" alt="Réseaux">
+          </div>
+          <h3>Réseaux &amp; Routage</h3>
+          <ul class="skill-list">
+            <li>TCP/IP, DNS, DHCP, VLAN</li>
+            <li>OSPF, EIGRP, RIP, BGP</li>
+            <li>MPLS VPN, ACLs, SSH, HTTPS</li>
+            <li>GNS3, Cisco Packet Tracer, eNSP</li>
+          </ul>
+        </div>
+
+        <div class="skill-box reveal">
+          <div class="skill-icon-wrap">
+            <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=400&q=100" alt="Linux">
+          </div>
+          <h3>Systèmes &amp; Sécurité</h3>
+          <ul class="skill-list">
+            <li>Linux (Ubuntu, Debian, Server)</li>
+            <li>OpenLDAP, Active Directory (GPO)</li>
+            <li>Kerberos 5, FreeRADIUS, Samba</li>
+            <li>Analyse de logs &amp; Blue Team</li>
+          </ul>
+        </div>
+
+        <div class="skill-box reveal">
+          <div class="skill-icon-wrap">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=100" alt="Télécoms">
+          </div>
+          <h3>Télécoms &amp; Cloud</h3>
+          <ul class="skill-list">
+            <li>DWDM, OptiSystem, Fibre optique</li>
+            <li>Téléphonie IP (Asterisk PBX)</li>
+            <li>Deployments Cloud AWS (EC2)</li>
+            <li>4G/5G, GSM, Comms sans-fil</li>
+          </ul>
+        </div>
+
+        <div class="skill-box reveal">
+          <div class="skill-icon-wrap">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=100" alt="Dev">
+          </div>
+          <h3>Développement</h3>
+          <ul class="skill-list">
+            <li>JavaScript, Node.js, Express</li>
+            <li>Python, Bash Scripting, C, Java</li>
+            <li>Bases de données SQL (MySQL)</li>
+            <li>Git, VS Code, Linux CLI</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box reveal">
+        <h2 class="section-title" style="margin-bottom:20px;">Travaillons Ensemble</h2>
+        <p style="color:var(--text-muted); font-size:16px; margin-bottom:40px; font-weight:400;">
+          Actuellement à la recherche d'un stage passionnant en Réseaux, Cybersécurité ou Télécommunications à Dakar.
+        </p>
+        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+          <a href="mailto:sambabdou267@gmail.com" class="btn btn-primary">✉️ sambabdou267@gmail.com</a>
+          <a href="https://wa.me/221777423855" target="_blank" class="btn btn-outline">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Serigne Abdourahmane SAMB — ESP/UCAD Dakar
+    </div>
+  </footer>
+
+  <script>
+    const observerOptions = {
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
+
+    // Observer pour les révélations classiques
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    
+    // Observer pour les révélations surpuissantes (Parcours)
+    document.querySelectorAll('.super-reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
