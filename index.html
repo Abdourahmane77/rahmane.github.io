@@ -97,7 +97,7 @@
     .cta-row { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
-      padding: 16px 32px; border-radius: 8px; font-size: 14px; font-weight: 600;
+      padding: 14px 28px; border-radius: 8px; font-size: 13px; font-weight: 600;
       text-transform: uppercase; letter-spacing: 1px;
       transition: all 0.3s ease; cursor: pointer; border: none;
     }
@@ -115,6 +115,31 @@
     }
     .btn-outline:hover {
       background: var(--primary); color: #FFFFFF; transform: translateY(-3px);
+    }
+
+    /* Bouton PDF spécifique */
+    .btn-pdf {
+      background: var(--bg-alt);
+      color: var(--primary);
+      border: 1px solid var(--card-border);
+      margin-top: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    .btn-pdf:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+      transform: translateY(-2px);
     }
 
     section { padding: 100px 0; border-bottom: 1px solid var(--card-border); }
@@ -160,8 +185,8 @@
     
     .project-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
     .project-tag-meta { font-size: 12px; color: var(--secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-    .project-title { font-size: 28px; margin: 0 0 20px; font-weight: 700; line-height: 1.2; color: var(--primary); }
-    .project-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 32px; line-height: 1.8; font-weight: 400; }
+    .project-title { font-size: 28px; margin: 0 0 16px; font-weight: 700; line-height: 1.2; color: var(--primary); }
+    .project-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 20px; line-height: 1.8; font-weight: 400; }
     .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
     .tech-badge {
       background: var(--bg-alt); border: 1px solid var(--card-border);
@@ -169,7 +194,6 @@
       color: var(--accent); letter-spacing: 0.5px;
     }
 
-    /* ANIMATIONS EXTRÊMES POUR LE PARCOURS */
     .timeline {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;
       perspective: 1200px;
@@ -188,7 +212,6 @@
       transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     
-    /* Effet hover surpuissant */
     .timeline-card:hover { 
       transform: scale(1.08) translateY(-15px) rotateX(5deg) rotateY(-5deg) !important; 
       box-shadow: -10px 30px 50px rgba(0,0,0,0.12);
@@ -200,7 +223,6 @@
       opacity: 0.03;
     }
 
-    /* Classes dynamiques pour le JS */
     .super-reveal {
       opacity: 0;
       transform: rotateX(40deg) translateY(80px) scale(0.8);
@@ -211,7 +233,6 @@
     .super-reveal.active {
       opacity: 1;
       transform: rotateX(0) translateY(0) scale(1);
-      /* Déclenche un flottement infini après l'apparition */
       animation: float-extreme 6s ease-in-out infinite alternate var(--delay, 0s);
     }
 
@@ -319,6 +340,7 @@
       </div>
 
       <div class="projects-grid">
+        <!-- Projet 1 -->
         <div class="project-card reveal">
           <div class="project-img-wrap">
             <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1920&q=100" alt="Infrastructure Réseau 4K">
@@ -335,9 +357,12 @@
               <span class="tech-badge">MPLS VPN</span>
               <span class="tech-badge">ACL Security</span>
             </div>
+            <!-- Lien vers multisite.pdf -->
+            <a href="multisite.pdf" target="_blank" class="btn-pdf">📄 Voir le rapport PDF</a>
           </div>
         </div>
 
+        <!-- Projet 2 -->
         <div class="project-card reverse reveal">
           <div class="project-img-wrap">
             <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1920&q=100" alt="Infrastructure IAM 4K">
@@ -354,9 +379,12 @@
               <span class="tech-badge">FreeRADIUS</span>
               <span class="tech-badge">Linux Server</span>
             </div>
+            <!-- Lien vers iam.pdf -->
+            <a href="iam.pdf" target="_blank" class="btn-pdf">📄 Voir la doc technique PDF</a>
           </div>
         </div>
 
+        <!-- Projet 3 -->
         <div class="project-card reveal">
           <div class="project-img-wrap">
             <img src="https://images.unsplash.com/photo-1551721434-8b94ddff0e6d?auto=format&fit=crop&w=1920&q=100" alt="Téléphonie Cloud AWS 4K">
@@ -373,9 +401,12 @@
               <span class="tech-badge">SIP / VoIP</span>
               <span class="tech-badge">Linux</span>
             </div>
+            <!-- Lien vers aws.pdf -->
+            <a href="aws.pdf" target="_blank" class="btn-pdf">📄 Voir la preuve du projet PDF</a>
           </div>
         </div>
 
+        <!-- Projet 4 -->
         <div class="project-card reverse reveal">
           <div class="project-img-wrap">
             <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=100" alt="Code Development 4K">
@@ -392,6 +423,8 @@
               <span class="tech-badge">WebRTC</span>
               <span class="tech-badge">MySQL</span>
             </div>
+            <!-- Lien vers web.pdf -->
+            <a href="web.pdf" target="_blank" class="btn-pdf">📄 Voir la fiche projet PDF</a>
           </div>
         </div>
       </div>
@@ -406,7 +439,6 @@
       </div>
 
       <div class="timeline">
-        <!-- 1. Baccalauréat -->
         <div class="timeline-card super-reveal" style="--delay: 0.1s">
           <div class="timeline-date">2023 — 2024</div>
           <h3 class="timeline-title">Baccalauréat Scientifique S2</h3>
@@ -416,7 +448,6 @@
           </div>
         </div>
 
-        <!-- 2. Certification -->
         <div class="timeline-card super-reveal" style="--delay: 0.3s">
           <div class="timeline-date">Certification Officielle</div>
           <h3 class="timeline-title">Industrial Cybersecurity Essentials</h3>
@@ -426,7 +457,6 @@
           </div>
         </div>
 
-        <!-- 3. Licence -->
         <div class="timeline-card super-reveal" style="--delay: 0.5s">
           <div class="timeline-date">2024 — Présent (2026)</div>
           <h3 class="timeline-title">Licence Systèmes, Réseaux &amp; Télécoms</h3>
@@ -536,10 +566,7 @@
       });
     }, observerOptions);
 
-    // Observer pour les révélations classiques
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    
-    // Observer pour les révélations surpuissantes (Parcours)
     document.querySelectorAll('.super-reveal').forEach(el => observer.observe(el));
   </script>
 </body>
