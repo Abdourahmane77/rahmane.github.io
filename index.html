@@ -254,7 +254,7 @@
     .timeline-location { font-size: 14px; color: var(--primary); margin-bottom: 20px; font-weight: 600; }
     .timeline-body { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 400; }
 
-    /* DESIGN SECTION CERTIFICATIONS UNIFORMISÉ */
+    /* DESIGN SECTION CERTIFICATIONS AVEC VRAIS LOGOS */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -288,19 +288,21 @@
       margin-bottom: 24px;
     }
     .cert-logo-box {
-      width: 56px;
+      width: 72px;
       height: 56px;
-      border-radius: 14px;
+      border-radius: 12px;
       background: var(--bg-alt);
       border: 1px solid var(--card-border);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 16px;
-      font-family: var(--font-title);
-      color: var(--primary);
-      letter-spacing: -0.5px;
+      overflow: hidden;
+      padding: 6px;
+    }
+    .cert-logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .cert-badge-highlight {
       font-size: 11px;
@@ -544,7 +546,7 @@
     </div>
   </section>
 
-  <!-- SECTION CERTIFICATIONS AVEC "CERTIFIÉ" UNIFORME -->
+  <!-- SECTION CERTIFICATIONS AVEC LOGOS OFFICIELS -->
   <section id="certifications">
     <div class="wrap">
       <div class="section-header reveal">
@@ -556,7 +558,9 @@
         <!-- Carte Junior Cybersecurity Analyst -->
         <div class="cert-card featured reveal">
           <div class="cert-top">
-            <div class="cert-logo-box">JCA</div>
+            <div class="cert-logo-box">
+              <img src="Junior_analyst.png" alt="Junior Analyst Logo">
+            </div>
             <span class="cert-badge-highlight">Certifié</span>
           </div>
           <div class="cert-org">Career Path Certification</div>
@@ -572,7 +576,9 @@
         <!-- Carte Fortinet NSE 1-3 -->
         <div class="cert-card reveal">
           <div class="cert-top">
-            <div class="cert-logo-box" style="color: #FF0000;">FN</div>
+            <div class="cert-logo-box">
+              <img src="fortinet.png" alt="Logo Fortinet">
+            </div>
             <span class="cert-badge-highlight">Certifié</span>
           </div>
           <div class="cert-org">Fortinet Training Institute</div>
@@ -588,7 +594,9 @@
         <!-- Carte Cisco Industrial Cybersecurity -->
         <div class="cert-card reveal">
           <div class="cert-top">
-            <div class="cert-logo-box" style="color: #049FD9;">CS</div>
+            <div class="cert-logo-box">
+              <img src="Cisco.png" alt="Logo Cisco">
+            </div>
             <span class="cert-badge-highlight">Certifié</span>
           </div>
           <div class="cert-org">Cisco Networking Academy</div>
