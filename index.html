@@ -254,6 +254,121 @@
     .timeline-location { font-size: 14px; color: var(--primary); margin-bottom: 20px; font-weight: 600; }
     .timeline-body { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 400; }
 
+    /* DESIGN SECTION CERTIFICATIONS */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+    .cert-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+    .cert-card.featured {
+      border: 2px solid var(--primary);
+      background: linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+    }
+    .cert-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-color: var(--primary);
+    }
+    .cert-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .cert-logo-box {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--bg-alt);
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+      font-family: var(--font-title);
+      color: var(--primary);
+      letter-spacing: -0.5px;
+    }
+    .cert-badge-highlight {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 6px 12px;
+      border-radius: 100px;
+    }
+    .cert-org {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .cert-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0 0 12px 0;
+      line-height: 1.3;
+    }
+    .cert-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      flex-grow: 1;
+    }
+    .cert-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--card-border);
+      padding-top: 20px;
+      margin-top: auto;
+    }
+    .cert-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--secondary);
+      font-family: var(--font-mono);
+    }
+    .btn-cert {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background: var(--bg-alt);
+      border: 1px solid var(--card-border);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+    .btn-cert:hover {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+    }
+
     .skills-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;
     }
@@ -315,6 +430,7 @@
       <a href="#top" class="logo">Abdourahmane</a>
       <ul class="nav-links">
         <li><a href="#projets">Projets</a></li>
+        <li><a href="#certifications">Certifications</a></li>
         <li><a href="#parcours">Parcours</a></li>
         <li><a href="#competences">Compétences</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -434,11 +550,74 @@
     </div>
   </section>
 
+  <!-- SECTION CERTIFICATIONS AVEC LES LIENS PDF -->
+  <section id="certifications">
+    <div class="wrap">
+      <div class="section-header reveal">
+        <div class="section-subtitle">Validation &amp; Expertise</div>
+        <h2 class="section-title">Certifications Officielles</h2>
+      </div>
+
+      <div class="cert-grid">
+        <!-- Carte mise en avant : Junior Cybersecurity Analyst -->
+        <div class="cert-card featured reveal">
+          <div class="cert-top">
+            <div class="cert-logo-box">JCA</div>
+            <span class="cert-badge-highlight">Certifié</span>
+          </div>
+          <div class="cert-org">Career Path Certification</div>
+          <h3 class="cert-name">Junior Cybersecurity Analyst</h3>
+          <p class="cert-desc">
+            Validation des compétences en analyse de sécurité, détection proactive des menaces, investigation d'incidents et durcissement des systèmes d'information.
+          </p>
+          <div class="cert-footer">
+            <span class="cert-date">Obtenu en 2026</span>
+            <a href="Junior_analyst.pdf" target="_blank" class="btn-cert">Voir le certificat →</a>
+          </div>
+        </div>
+
+        <!-- Carte Fortinet NSE 1-3 -->
+        <div class="cert-card reveal">
+          <div class="cert-top">
+            <div class="cert-logo-box" style="color: #FF0000;">FN</div>
+            <span class="cert-badge-highlight" style="background: #F3F4F6; color: #111827; border: 1px solid var(--card-border);">Cursus Officiel</span>
+          </div>
+          <div class="cert-org">Fortinet Training Institute</div>
+          <h3 class="cert-name">Fortinet NSE 1, 2 &amp; 3</h3>
+          <p class="cert-desc">
+            Maîtrise des concepts fondamentaux de la cybersécurité, typologies de menaces et principes de sécurité des réseaux d'entreprise.
+          </p>
+          <div class="cert-footer">
+            <span class="cert-date">Niveaux 1 à 3</span>
+            <a href="NSE3.pdf" target="_blank" class="btn-cert">Voir le certificat →</a>
+          </div>
+        </div>
+
+        <!-- Carte Cisco Industrial Cybersecurity -->
+        <div class="cert-card reveal">
+          <div class="cert-top">
+            <div class="cert-logo-box" style="color: #049FD9;">CS</div>
+            <span class="cert-badge-highlight" style="background: #F3F4F6; color: #111827; border: 1px solid var(--card-border);">Cisco Academy</span>
+          </div>
+          <div class="cert-org">Cisco Networking Academy</div>
+          <h3 class="cert-name">Industrial Cybersecurity Essentials</h3>
+          <p class="cert-desc">
+            Sécurité des systèmes industriels (ICS), application des normes IEC 62443 et segmentation réseau OT/IT pour infrastructures critiques.
+          </p>
+          <div class="cert-footer">
+            <span class="cert-date">Certification Active</span>
+            <a href="industrial_cybersecurity.pdf" target="_blank" class="btn-cert">Voir le certificat →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="parcours">
     <div class="wrap">
       <div class="section-header reveal">
         <div class="section-subtitle">Curriculum</div>
-        <h2 class="section-title">Parcours &amp; Certifications</h2>
+        <h2 class="section-title">Parcours Académique</h2>
       </div>
 
       <div class="timeline">
@@ -451,16 +630,7 @@
           </div>
         </div>
 
-        <div class="timeline-card super-reveal" style="--delay: 0.25s">
-          <div class="timeline-date">Certifications Officielles</div>
-          <h3 class="timeline-title">Junior Cybersecurity Analyst, Fortinet &amp; Cisco</h3>
-          <div class="timeline-location">Certifications Officielles &amp; Instituts</div>
-          <div class="timeline-body">
-            Validation de la certification <strong>Junior Cybersecurity Analyst</strong> (analyse et détection des menaces), des cursus officiels <strong>Fortinet NSE 1, 2 &amp; 3</strong> (fondamentaux de la cybersécurité) et de <strong>Cisco Industrial Cybersecurity Essentials</strong> (sécurité OT/IT).
-          </div>
-        </div>
-
-        <div class="timeline-card super-reveal" style="--delay: 0.4s">
+        <div class="timeline-card super-reveal" style="--delay: 0.3s">
           <div class="timeline-date">2024 — Présent (2026)</div>
           <h3 class="timeline-title">Licence Systèmes, Réseaux &amp; Télécoms</h3>
           <div class="timeline-location">École Supérieure Polytechnique (ESP) — UCAD, Dakar</div>
